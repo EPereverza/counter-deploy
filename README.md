@@ -1,8 +1,16 @@
 # counter-deploy
-Пример проекта для деплоя приложения счетчик на сервер
 
+### **Локальное развертываение**
+- Запуск и билд: `docker-compose up -d`
 
+<p><img src="img/start.png" alt="sample" width="70%"></p>
 
-запуск и билд `docker-compose up -d`
-доступ `localhost:80`
-остановить контейнер `docker-compose down`
+- Доступ `localhost:80`
+
+<p><img src="img/counter.png" alt="sample" width="70%"></p>
+
+- Остановить контейнер `docker-compose down`
+
+<p><img src="img/down.png" alt="sample" width="70%"></p>
+
+### **Удаленное развертывание**
