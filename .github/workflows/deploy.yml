@@ -8,7 +8,25 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
+
+    env:
+      REDIS_HOST: localhost
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+
     steps:
+    
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -26,7 +44,7 @@ jobs:
       - name: Run tests
         run: |
           cd backend/tests
-          python -m pytest test_counter.py -v --tb=short
+          python -m pytest test_counter.py -v
 
   build-and-deploy:
     runs-on: ubuntu-latest
