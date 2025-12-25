@@ -21,4 +21,4 @@
 4. Команда для генерации ssh: `ssh-keygen -t rsa -b 4096 -f PereverzaE -C "pereverza.egor@gmail.com"`
 5. Скопировать ssh ключи к себе на ПК.
 6. Выполнить команду, PereverzaE заменить на название ключа `cat PereverzaE.pub | ssh root@5.101.51.5 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"`
-Требует пароль. Другие команды не работают. Нет GitHub action
+Требует пароль. Другие команды не работают. Нет GitHub action. Проверка тестов.

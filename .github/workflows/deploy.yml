@@ -20,8 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install pytest fakeredis pytest-cov
+          pip install -r ../tests/requirements.txt
 
       - name: Run tests
         run: |
