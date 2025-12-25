@@ -59,10 +59,17 @@ def increment():
 @app.route('/api/counter/decrement', methods=['POST'])
 def decrement():
     try:
-        v = r.decr(COUNTER_KEY)
+        current_value = r.get(COUNTER_KEY)
+        current_value = int(current_value) if current_value else 0
+        
+        if current_value > 0:
+            v = r.decr(COUNTER_KEY)
+        else:
+            v = current_value
+            
         return jsonify({"value": int(v)})
     except Exception as e:
-        return jsonify({"error": "Redis error"}), 500
+        return jsonify({"error": "Redis error"}), 400
 
 @app.route('/api/counter/reset', methods=['POST'])
 def reset():
