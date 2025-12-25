@@ -25,7 +25,8 @@ jobs:
 
       - name: Run tests
         run: |
-          python -m pytest ../tests/test_counter.py -v --tb=short
+          cd backend/tests
+          python -m pytest test_counter.py -v --tb=short
 
   build-and-deploy:
     runs-on: ubuntu-latest
